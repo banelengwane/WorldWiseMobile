@@ -3,7 +3,7 @@ import React, {createContext, useContext, useReducer, useEffect } from 'react'
 const CitiesContext = useContext()
 const BASE_URL = 'http://localhost:8000'
 
-const initialState = { cities = [], isLoading: false, currentCity: {}, error: "" };
+const initialState = { cities: [], isLoading: false, currentCity: {}, error: "" };
 
 function reducer(state, action) {
     switch(action.type) {

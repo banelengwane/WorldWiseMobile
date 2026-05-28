@@ -1,0 +1,28 @@
+{
+  "cities": [
+    {
+      "id": "8c4b",
+      "cityName": "Luderitz",
+      "country": "Namibia",
+      "emoji": "🇳🇦",
+      "date": "2024-11-29T08:32:11.978Z",
+      "notes": "Great Namib culture",
+      "position": {
+        "lat": "-26.64745870265937",
+        "lng": "16.062011718750004"
+      }
+    },
+    {
+      "id": "fdc3",
+      "cityName": "Seia",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2024-11-29T08:32:52.653Z",
+      "notes": "",
+      "position": {
+        "lat": "40.27952566881291",
+        "lng": "-7.778320312500001"
+      }
+    }
+  ]
+}
