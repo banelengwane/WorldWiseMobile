@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { CitiesProvider } from "./src/context/CitiesContext";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function AppTabs() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator screenOptions={{
+      tabBarActiveTintColor: '#00c466',
+      tabBarStyle: { backgroundColor: '#2d3435'},
+      headerStyle: { backgroundColor: '#2d3436' },
+      headerTintColor: '#fff'
+    }}>
+      <Tab.Screen name="Map View" component={MapScreen} />
+      <Tab.Screen name="Visited Cities" component={CitiesListScreen} />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <CitiesProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+          headerStyle: { backgroundColor: '#2d3436'},
+          headerTintColor:'#fff'
+        }}>
+          {/* Main app layout */}
+          <Stack.Screen name="Home" component={AppTabs} options={{ headerShown: false }} />
+          {/* Form and detail views overlay over tabs stack */}
+          <Stack.Screen name="AddCityForm" component={AddCityFormScreen} options={{ title: 'Add Visited Location'}} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CitiesProvider>
+  );
+}
